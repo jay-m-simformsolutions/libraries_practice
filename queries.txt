@@ -1,0 +1,12 @@
+how to create custom hooks when using sequelize.define()
+
+In async what are frequently used functions
+
+In helmet how to select which middelware is right choice
+
+How to do socket authentication
+
+for passport local can't we use our user defined general middelware or hooks?
+And SSO is OAuth
+
+in csrf how we send csrf in node apis and how it is used without satic rendaring?
