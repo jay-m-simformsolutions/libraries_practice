@@ -1,0 +1,32 @@
+db.collections.aggregate() === db.collections.find()  // ---- returns a cursor
+
+===== Stage operators =====
+$match -- match with sertain conditions
+$group -- group with certain critaria
+$project -- filters fields in doc
+$sort -- 
+$count -- 
+$limit -- 
+$skip -- skip certain documents
+$out -- store output in another collections
+
+
+db.persons.aggregate( $match: { age: { $gt: 25 } } )
+db.getCollection('persons').aggregate([ { $match: { age: {$gt: 25} }}, { $group: { _id: "$_id"} } ])
+db.getCollection('persons').aggregate([ {$project: {name: 1, "company.title": 1}} ])
+db.getCollection('persons').aggregate([ {$project: {name: 1, "company.title": 1}}, {$count: "total"}])
+
+db.getCollection('persons').aggregate([
+{
+    $project: {
+        _id: 0,
+        index: 1,
+        name: 1, 
+        info: {
+            eyes: "$eyeColor",
+            company: "$company.title",
+            country: "$company.location.country"
+        }
+    }
+}
+])
